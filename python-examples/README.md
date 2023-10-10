@@ -17,5 +17,5 @@ cd my-example
 poetry install
 poetry shell
 
-py my-example/app.py
+python my-example/app.py
 ```
