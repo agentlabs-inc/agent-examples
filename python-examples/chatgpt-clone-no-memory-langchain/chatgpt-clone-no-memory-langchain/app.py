@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
     llm = ChatOpenAI(streaming=True)
 
-    agent = agentlabs.agent(id='c5d51233-b801-49b8-bec0-9898036b339c')
+    agent = agentlabs.agent(id=env.agent_id)
     agent.on_chat_message(handle_task)
 
     agent.connect()
