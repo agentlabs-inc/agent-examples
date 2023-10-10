@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "chatgpt-clone-no-memory-langchain"
+version = "0.1.0"
+description = ""
+authors = ["Aurélien Brabant <aurelien@agentlabs.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+langchain = "^0.0.311"
+openai = "^0.28.1"
+agentlabs-sdk = "^0.0.27"
+python-dotenv = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
