@@ -1,0 +1,18 @@
+{
+  "name": "ts-ping-pong",
+  "version": "1.0.0",
+  "description": "Dead simple example showing how to use AgentLabs SDK in nodejs",
+  "main": "index.ts",
+  "author": "Kevin Piacentini <kevinpiac@gmail.com>",
+  "license": "ISC",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "@agentlabs/node-sdk": "^0.0.28",
+    "dotenv": "^16.3.1"
+  }
+}
