@@ -1,5 +1,5 @@
 {
-  "name": "ts-ping-pong",
+  "name": "ts-multi-agent-basic",
   "version": "1.0.0",
   "description": "Dead simple example showing how to use AgentLabs SDK in nodejs",
   "main": "index.ts",

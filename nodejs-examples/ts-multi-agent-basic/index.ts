@@ -3,7 +3,8 @@ import { Project } from "@agentlabs/node-sdk";
 
 const projectId = process.env.AGENTLABS_PROJECT_ID;
 const secret = process.env.AGENTLABS_SECRET;
-const agentId = process.env.AGENTLABS_AGENT_ID;
+const agentAId = process.env.AGENTLABS_AGENT_A_ID;
+const agentBId = process.env.AGENTLABS_AGENT_B_ID;
 const agentlabsUrl = process.env.AGENTLABS_URL;
 
 if (!projectId) {
@@ -12,8 +13,8 @@ if (!projectId) {
 if (!secret) {
     throw new Error('Missing AGENTLABS_SECRET');
 }
-if (!agentId) {
-    throw new Error('Missing AGENTLABS_AGENT_ID');
+if (!agentAId || !agentBId) {
+    throw new Error('Missing AGENTLABS_AGENT_A_ID or AGENTLABS_AGENT_B_ID');
 }
 if (!agentlabsUrl) {
     throw new Error('Missing AGENTLABS_URL');
@@ -25,23 +26,20 @@ const project = new Project({
     url: agentlabsUrl,
 });
 
-const agent = project.agent(agentId);
+const agentA = project.agent(agentAId);
+const agentB = project.agent(agentBId);
 
 project.onChatMessage(async (message) => {
     // We can simulate a delay...
     await new Promise(resolve => setTimeout(resolve, 500));
-
-    if (message.text === 'ping') {
-        agent.send({
-            text: 'pong',
-            conversationId: message.conversationId,
-        });
-    } else {
-        agent.send({
-            text: 'Sorry I only understand "ping"',
-            conversationId: message.conversationId,
-        });
-    }
+    agentA.send({
+        text: 'Hello I am the Agent A',
+        conversationId: message.conversationId,
+    });
+    agentB.send({
+        text: 'Hello I am the Agent B',
+        conversationId: message.conversationId,
+    });
 });
 
 project.connect();
