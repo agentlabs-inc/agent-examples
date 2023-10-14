@@ -71,6 +71,7 @@ def handle_task(message: IncomingChatMessage):
 
 if __name__ == "__main__":
     env = parse_env_or_raise()
+
     project = Project(
             project_id=env.project_id,
             agentlabs_url=env.agentlabs_url,

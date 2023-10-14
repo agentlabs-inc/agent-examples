@@ -32,7 +32,7 @@ if (!e2bApiKey) {
 const project = new Project({
     projectId,
     secret,
-    agentlabsUrl,
+    url: agentlabsUrl,
 });
 
 const agent = project.agent(agentId);
@@ -56,9 +56,13 @@ const functions = [
     },
 ]
 
-agent.onChatMessage(async (userMessage) => {
+project.onChatMessage(async (userMessage) => {
+    const conversationId = userMessage.conversationId;
     await  new Promise(resolve => setTimeout(resolve, 6000));
-    userMessage.reply('Okay, let me think about it...');
+    agent.send({
+        conversationId,
+        text: 'Okay, let me think about it...',
+    });
 
     const chatCompletion = await openai.chat.completions.create({
         model: 'gpt-4',
@@ -89,8 +93,10 @@ agent.onChatMessage(async (userMessage) => {
     const func = message["function_call"];
 
     if (func) {
-        const stream = userMessage.streamedReply({
-            format: 'MARKDOWN',
+        const stream = agent.createStream({
+            conversationId,
+        }, {
+            format: 'Markdown',
         });
 
         const funcName = func["name"];
@@ -136,8 +142,11 @@ agent.onChatMessage(async (userMessage) => {
     } else {
         // The model didn't call a function, so we just print the message.
         const content = message["content"];
-        userMessage.reply(content ?? 'It seems the model did not responded. Please try again.');
+        agent.send({
+            conversationId,
+            text: content ?? 'It seems the model did not responded. Please try again.'
+        });
     }
 });
 
-agent.connect()
+project.connect();

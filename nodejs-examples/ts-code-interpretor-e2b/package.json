@@ -12,7 +12,7 @@
     "ts-node": "^10.9.1"
   },
   "dependencies": {
-    "@agentlabs/node-sdk": "^0.0.28",
+    "@agentlabs/node-sdk": "^0.0.35",
     "@e2b/sdk": "^0.6.2",
     "dotenv": "^16.3.1",
     "openai": "^4.12.1"

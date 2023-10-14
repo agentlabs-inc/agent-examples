@@ -92,10 +92,10 @@ def handle_task(message: IncomingChatMessage):
 
 if __name__ == "__main__":
     env = parse_env_or_raise()
-    agentlabs = Project(
-            project_id=env.project_id,
-            agentlabs_url=env.agentlabs_url,
-            secret=env.secret,
+    project = Project(
+        project_id=env.project_id,
+        agentlabs_url=env.agentlabs_url
+        secret=env.secret
     )
 
     llm = ChatOpenAI(streaming=True)
