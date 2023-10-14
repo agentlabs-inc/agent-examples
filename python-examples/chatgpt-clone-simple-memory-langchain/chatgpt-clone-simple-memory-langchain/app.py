@@ -1,10 +1,11 @@
 from typing import Any, Dict, List
+import os
 from dotenv import load_dotenv
-from agentlabs.agent import IncomingChatMessage, MessageFormat, os
+from agentlabs.chat import IncomingChatMessage, MessageFormat
 from langchain.callbacks.base import BaseCallbackHandler
 from langchain.memory import ChatMessageHistory
 from langchain.chat_models import ChatOpenAI
-from agentlabs.project import Project
+from agentlabs.project import Agent, Project
 from langchain.schema.messages import AIMessage, BaseMessage, HumanMessage, SystemMessage
 from langchain.schema.output import LLMResult
 from pydantic.v1.dataclasses import dataclass
@@ -17,14 +18,18 @@ class ParsedEnv:
     agent_id: str
 
 class AgentLabsStreamingCallback(BaseCallbackHandler):
-    def __init__(self, message: IncomingChatMessage):
+    def __init__(self, agent: Agent, conversation_id: str):
         super().__init__()
-        self.message = message
+        self.agent = agent
+        self.conversation_id = conversation_id
 
     def on_llm_start(
         self, serialized: Dict[str, Any], prompts: List[str], **kwargs: Any
     ) -> Any:
-        self.stream = self.message.streamed_reply(format=MessageFormat.MARKDOWN)
+        self.stream = self.agent.create_stream(
+                format=MessageFormat.MARKDOWN,
+                conversation_id=self.conversation_id,
+        )
 
     def on_llm_new_token(self, token: str, **kwargs: Any) -> Any:
         self.stream.write(token)
@@ -69,6 +74,8 @@ class ConversationMemoryManager:
 memory_manager = ConversationMemoryManager()
 
 def handle_task(message: IncomingChatMessage):
+    agent = agentlabs.agent(env.agent_id)
+
     print(f"Handling message: {message.text} sent by {message.member_id}")
 
     memory = memory_manager.get_memory(message.conversation_id)
@@ -78,7 +85,7 @@ def handle_task(message: IncomingChatMessage):
 
     memory.add_message(HumanMessage(content=message.text))
 
-    callback = AgentLabsStreamingCallback(message)
+    callback = AgentLabsStreamingCallback(agent, message.conversation_id)
     output = llm(memory.messages, callbacks=[callback])
 
     memory.add_message(AIMessage(content=output.content))
@@ -94,7 +101,7 @@ if __name__ == "__main__":
     llm = ChatOpenAI(streaming=True)
 
     agent = agentlabs.agent(env.agent_id)
-    agent.on_chat_message(handle_task)
+    agentlabs.on_chat_message(handle_task)
 
-    agent.connect()
-    agent.wait()
+    agentlabs.connect()
+    agentlabs.wait()

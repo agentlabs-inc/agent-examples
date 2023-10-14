@@ -2,13 +2,13 @@
 
 [[package]]
 name = "agentlabs-sdk"
-version = "0.0.27"
+version = "0.0.33"
 description = "AgentLabs SDK for Python"
 optional = false
 python-versions = ">=3.11,<4.0"
 files = [
-    {file = "agentlabs_sdk-0.0.27-py3-none-any.whl", hash = "sha256:adcdf7a524327c78f06a4fba57bb2016c7f74d0307778f56ed334c1fbc3687c9"},
-    {file = "agentlabs_sdk-0.0.27.tar.gz", hash = "sha256:140367f49917752cabdeed8dec045cdff892288b90eb05c723bdf256805a375e"},
+    {file = "agentlabs_sdk-0.0.33-py3-none-any.whl", hash = "sha256:8f4d439a752189ffb273cd39b7868e13c20d6f59b02c05aaa7879d76660e8e4a"},
+    {file = "agentlabs_sdk-0.0.33.tar.gz", hash = "sha256:875efb606239c7ab83e771660813596e7d21bcbeb35b7cff38f1d263ce43f7ca"},
 ]
 
 [package.dependencies]
@@ -930,13 +930,13 @@ cli = ["click (>=5.0)"]
 
 [[package]]
 name = "python-engineio"
-version = "4.7.1"
+version = "4.8.0"
 description = "Engine.IO server and client for Python"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "python-engineio-4.7.1.tar.gz", hash = "sha256:a8422e345cd9a21451303380b160742ff02197975b1c3a02cef115febe2b1b20"},
-    {file = "python_engineio-4.7.1-py3-none-any.whl", hash = "sha256:52499e8ab94fea1a6525ffe872fe7028d04b575799c5fa8e2cf7880e032de42e"},
+    {file = "python-engineio-4.8.0.tar.gz", hash = "sha256:2a32585d8fecd0118264fe0c39788670456ca9aa466d7c026d995cfff68af164"},
+    {file = "python_engineio-4.8.0-py3-none-any.whl", hash = "sha256:6055ce35b7f32b70641d53846faf76e06f2af0107a714cedb2750595c69ade43"},
 ]
 
 [package.dependencies]
@@ -1358,4 +1358,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "c322592891ac7b49b7ad011759cea9f86c8315d2c1a4359aabb373c44db6371f"
+content-hash = "211fdfe80cc35e98a876d7456de472b91509eeba99e6e6cce03f4d95610b53ed"
