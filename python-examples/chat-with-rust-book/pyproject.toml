@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "chat-with-rust-book"
+version = "0.1.0"
+description = ""
+authors = ["Aurélien Brabant <main@aurelienbrabant.fr>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+langchain = "^0.0.314"
+openai = "^0.28.1"
+unstructured = {extras = ["md"], version = "^0.10.22"}
+python-dotenv = "^1.0.0"
+chromadb = "^0.4.14"
+tiktoken = "^0.5.1"
+agentlabs-sdk = {path = "/Users/aurelienbrabant/prog/agentslab-poc/sdks/python-sdk"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
