@@ -13,7 +13,7 @@ unstructured = {extras = ["md"], version = "^0.10.22"}
 python-dotenv = "^1.0.0"
 chromadb = "^0.4.14"
 tiktoken = "^0.5.1"
-agentlabs-sdk = {path = "/Users/aurelienbrabant/prog/agentslab-poc/sdks/python-sdk"}
+agentlabs-sdk = "^0.0.37"
 
 
 [build-system]

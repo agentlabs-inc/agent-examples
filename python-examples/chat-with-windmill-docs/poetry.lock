@@ -2,21 +2,19 @@
 
 [[package]]
 name = "agentlabs-sdk"
-version = "0.0.0"
+version = "0.0.37"
 description = "AgentLabs SDK for Python"
 optional = false
-python-versions = "^3.11"
-files = []
-develop = false
+python-versions = ">=3.11,<4.0"
+files = [
+    {file = "agentlabs_sdk-0.0.37-py3-none-any.whl", hash = "sha256:4f4b2e23a43c8d5eaa750611c3f70ec8eef9541211a3e5bcdbd4c55654a82c8d"},
+    {file = "agentlabs_sdk-0.0.37.tar.gz", hash = "sha256:668862e963aae4b6e5fb3170997e20245da64f0c69e7d4330596f7f4b24ae28a"},
+]
 
 [package.dependencies]
-python-socketio = "^5.9.0"
-requests = "^2.31.0"
-websocket-client = "^1.6.3"
-
-[package.source]
-type = "directory"
-url = "../../../agentslab-poc/sdks/python-sdk"
+python-socketio = ">=5.9.0,<6.0.0"
+requests = ">=2.31.0,<3.0.0"
+websocket-client = ">=1.6.3,<2.0.0"
 
 [[package]]
 name = "aiohttp"
@@ -1810,18 +1808,18 @@ files = [
 
 [[package]]
 name = "python-socketio"
-version = "5.9.0"
+version = "5.10.0"
 description = "Socket.IO server and client for Python"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "python-socketio-5.9.0.tar.gz", hash = "sha256:dc42735f65534187f381fde291ebf620216a4960001370f32de940229b2e7f8f"},
-    {file = "python_socketio-5.9.0-py3-none-any.whl", hash = "sha256:c20f12e4ed0cba57581af26bbeea9998bc2eeebb3b952fa92493a1e051cfe9dc"},
+    {file = "python-socketio-5.10.0.tar.gz", hash = "sha256:01c616946fa9f67ed5cc3d1568e1c4940acfc64aeeb9ff621a53e80cabeb748a"},
+    {file = "python_socketio-5.10.0-py3-none-any.whl", hash = "sha256:fb18d9b84cfb05289dc207b790c3de59cd242310d9b980b1c31e9faf4f79101a"},
 ]
 
 [package.dependencies]
 bidict = ">=0.21.0"
-python-engineio = ">=4.7.0"
+python-engineio = ">=4.8.0"
 
 [package.extras]
 asyncio-client = ["aiohttp (>=3.4)"]
@@ -3000,4 +2998,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "7699a6fd5d167149ed9f38997af01da4656eaa69d4317c2bd8767b506c768d28"
+content-hash = "8b1baadbfc2decf2d9edf5460745ba1c012bef451aae21aee42732ba203cd6e0"
