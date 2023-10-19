@@ -12,7 +12,7 @@
     "ts-node": "^10.9.1"
   },
   "dependencies": {
-    "@agentlabs/node-sdk": "^0.0.35",
+    "@agentlabs/node-sdk": "^0.0.51",
     "dotenv": "^16.3.1"
   }
 }
