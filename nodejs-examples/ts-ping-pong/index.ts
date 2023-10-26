@@ -1,5 +1,4 @@
-import 'dotenv/config';
-import { Project } from "@agentlabs/node-sdk";
+import {Project} from "@agentlabs/node-sdk";
 
 const projectId = process.env.AGENTLABS_PROJECT_ID;
 const secret = process.env.AGENTLABS_SECRET;
